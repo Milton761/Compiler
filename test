@@ -1,0 +1,13 @@
+local A in
+
+A = 	proc { $ B C D }  
+	D = 3
+	end
+
+end
+
+{Avion A B C}
+
+
+
+

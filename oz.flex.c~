@@ -35,8 +35,6 @@ espacio [ \t\n]+
 "(" return PARI;
 ")" return PARD;
 ":" return DOSPUNTOS;
-"proc" return PROC;
-"$" return DOLAR;
 
 "true" return TRUE;
 "false" return FALSE;

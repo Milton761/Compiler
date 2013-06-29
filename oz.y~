@@ -87,10 +87,10 @@ bool:
 
 
 
-/*main ()
+main ()
 {
   yyparse ();
-}*/
+}
 
 
 
