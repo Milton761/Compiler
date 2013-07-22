@@ -1,0 +1,15 @@
+
+typedef struct map_node
+{
+	void * key;
+	void * value;
+	bool (comp*) (void * key1,void * key2);
+	struct map_node *  next;
+
+} map_node;
+
+typedef struct Map
+{
+	map_node * primero;
+
+} Map;

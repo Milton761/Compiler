@@ -42,7 +42,7 @@ st1: st2
 
 ;
 
-st2:  SKIP            {    printf("skip\n");      }
+st2:  SKIP            {    printf("skip\n");     }
         | ID IGUAL value     { $$ = $1 ;  printf("ID con value\n");   }       
 	| ID IGUAL ID	{ $$ = $1 ;  printf("ID con ID\n");    }	
         | LOCAL ID  IN  st1 END     {printf("local \n");   }

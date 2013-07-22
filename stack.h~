@@ -1,0 +1,82 @@
+#include "statement.h"
+#include <stdio.h>
+typedef struct stack_node
+{
+	Statement * st;
+	struct stack_node *  next;
+
+} stack_node;
+
+typedef struct Stack
+{
+	stack_node * primero;	
+} Stack;
+
+stack_node * stack_node_new(Statement * st , stack_node * next)
+{
+	stack_node * node = (stack_node*)malloc(sizeof(stack_node));
+	node->st = st;
+	node->next = next;
+
+	return node;
+}
+Stack * Stack_new()
+{
+	Stack * stack = (Stack*) malloc(sizeof(Stack));
+	stack->primero = NULL;
+	return stack;
+}
+
+void Stack_delete(Stack * stack)
+{
+
+	stack_node * tmp = stack->primero;
+	while(tmp!=NULL)
+	{
+		free(tmp->st);
+		//free stack_node
+		tmp = tmp->next;
+	}
+	free(stack);
+}
+
+void push(Stack * stack, Statement * st)
+{
+	if(stack->primero==NULL)
+	{
+		stack->primero = stack_node_new(st,NULL);
+	}
+	else
+	{
+		stack_node *tmp = stack->primero;
+
+		stack->primero = stack_node_new(st,tmp);
+
+	}
+}
+
+void pop(Stack * stack)
+{
+	if(stack->primero!=NULL)
+	{
+		stack_node * tmp = stack->primero;
+		stack->primero = tmp->next;
+		free(tmp);
+	}
+}
+
+void r_print(stack_node * node)
+{
+	if(node!=NULL)
+	{
+		printf("%d\n",node->st->id);
+		r_print(node->next);
+	}
+}
+
+void printStack(Stack * stack)
+{
+	r_print(stack->primero);
+}
+	
+	

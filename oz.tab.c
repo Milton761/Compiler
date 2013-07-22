@@ -1416,7 +1416,7 @@ yyreduce:
 
 /* Line 1806 of yacc.c  */
 #line 45 "oz.y"
-    {    printf("skip\n");      }
+    {    printf("skip\n");     }
     break;
 
   case 5:
